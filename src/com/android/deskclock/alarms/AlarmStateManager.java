@@ -232,9 +232,11 @@ public final class AlarmStateManager extends BroadcastReceiver {
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (Utils.isKitKatOrLater()) {
-            am.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            // am.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            am.setExact(AlarmManager.RTC_SHUTDOWN_WAKEUP, timeInMillis, pendingIntent);
         } else {
-            am.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            // am.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            am.set(AlarmManager.RTC_SHUTDOWN_WAKEUP, timeInMillis, pendingIntent);
         }
     }
 

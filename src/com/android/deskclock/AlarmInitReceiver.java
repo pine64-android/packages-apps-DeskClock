@@ -51,7 +51,7 @@ public class AlarmInitReceiver extends BroadcastReceiver {
         AsyncHandler.post(new Runnable() {
             @Override public void run() {
                 // Remove the snooze alarm after a boot.
-                if (action.equals(Intent.ACTION_BOOT_COMPLETED)) {
+                if (action.equals(Intent.ACTION_BOOT_COMPLETED) || action.equals(Intent.ACTION_SHUTDOWN)) {
                     // Clear stopwatch and timers data
                     SharedPreferences prefs =
                             PreferenceManager.getDefaultSharedPreferences(context);
